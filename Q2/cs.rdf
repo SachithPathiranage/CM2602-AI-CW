@@ -1,0 +1,240 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:cs="http://example.org/cybersecurity#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+  xml:base="http://example.org/cybersecurity" > 
+  <rdf:Description rdf:about="#Training">
+    <rdfs:subClassOf rdf:resource="#SecurityEducation"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#Standard">
+    <rdfs:subClassOf rdf:resource="#ComplianceRegulations"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#ISO27001">
+    <cs:requires rdf:resource="#AccessControl"/>
+    <rdfs:label>ISO 27001</rdfs:label>
+    <rdf:type rdf:resource="#Standard"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#Vulnerability">
+    <rdfs:subClassOf rdf:resource="#ThreatIntelligence"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#effectivenessScore">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#exploits">
+    <rdfs:domain rdf:resource="#Malware"/>
+    <rdfs:range rdf:resource="#Vulnerability"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#Detection">
+    <rdfs:label>Detection and Analysis</rdfs:label>
+    <rdf:type rdf:resource="#IRPhase"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#Trojan">
+    <rdfs:label>Banking Trojan</rdfs:label>
+    <cs:riskLevel>High</cs:riskLevel>
+    <rdf:type rdf:resource="#Malware"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#riskLevel">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#Regulation">
+    <rdfs:subClassOf rdf:resource="#ComplianceRegulations"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#CISSP">
+    <rdfs:label>CISSP</rdfs:label>
+    <rdf:type rdf:resource="#Certification"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#Malware">
+    <rdfs:subClassOf rdf:resource="#ThreatIntelligence"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#EDR">
+    <rdfs:label>Endpoint Detection and Response</rdfs:label>
+    <cs:effectivenessScore>8</cs:effectivenessScore>
+    <rdf:type rdf:resource="#TechnicalControl"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#requires">
+    <rdfs:range rdf:resource="#SecurityControls"/>
+    <rdfs:domain rdf:resource="#Standard"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#IncidentResponse">
+    <rdfs:subClassOf rdf:resource="#Cybersecurity"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#Preparation">
+    <rdfs:label>Preparation Phase</rdfs:label>
+    <rdf:type rdf:resource="#IRPhase"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#PCI_DSS">
+    <rdfs:label>Payment Card Industry Data Security Standard</rdfs:label>
+    <rdf:type rdf:resource="#Regulation"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#Ransomware">
+    <rdfs:label>Ransomware</rdfs:label>
+    <cs:riskLevel>High</cs:riskLevel>
+    <cs:exploits rdf:resource="#CVE-2021-44228"/>
+    <rdf:type rdf:resource="#Malware"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#targets">
+    <rdfs:domain rdf:resource="#ThreatActor"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#HIPAA">
+    <rdfs:label>Health Insurance Portability and Accountability Act</rdfs:label>
+    <rdf:type rdf:resource="#Regulation"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#MFA">
+    <rdfs:label>Multi-Factor Authentication</rdfs:label>
+    <cs:effectivenessScore>9</cs:effectivenessScore>
+    <cs:mitigates rdf:resource="#CVE-2023-12345"/>
+    <rdf:type rdf:resource="#TechnicalControl"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#SecurityPolicy">
+    <rdfs:label>Security Policy</rdfs:label>
+    <cs:effectivenessScore>6</cs:effectivenessScore>
+    <rdf:type rdf:resource="#AdministrativeControl"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#SecureDevTraining">
+    <rdfs:label>Secure Development Training</rdfs:label>
+    <cs:addresses rdf:resource="#CVE-2021-44228"/>
+    <rdf:type rdf:resource="#Training"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#AdministrativeControl">
+    <rdfs:subClassOf rdf:resource="#SecurityControls"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#Cybersecurity">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#mitigates">
+    <rdfs:domain rdf:resource="#SecurityControls"/>
+    <rdfs:range rdf:resource="#Vulnerability"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#Containment">
+    <rdfs:label>Containment</rdfs:label>
+    <rdf:type rdf:resource="#IRPhase"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#CompTIA_Sec">
+    <rdfs:label>CompTIA Security+</rdfs:label>
+    <rdf:type rdf:resource="#Certification"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#IRPhase">
+    <rdfs:subClassOf rdf:resource="#IncidentResponse"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#ComplianceRegulations">
+    <rdfs:subClassOf rdf:resource="#Cybersecurity"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#addresses">
+    <rdfs:domain rdf:resource="#Training"/>
+    <rdfs:range rdf:resource="#ThreatIntelligence"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#ThreatActor">
+    <rdfs:subClassOf rdf:resource="#ThreatIntelligence"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#CEH">
+    <rdfs:label>Certified Ethical Hacker</rdfs:label>
+    <rdf:type rdf:resource="#Certification"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#Firewall">
+    <rdfs:label>Next-Gen Firewall</rdfs:label>
+    <cs:effectivenessScore>8</cs:effectivenessScore>
+    <rdf:type rdf:resource="#TechnicalControl"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#Recovery">
+    <rdfs:label>Recovery</rdfs:label>
+    <rdf:type rdf:resource="#IRPhase"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#IRTeam">
+    <rdfs:subClassOf rdf:resource="#IncidentResponse"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#SecurityEducation">
+    <rdfs:subClassOf rdf:resource="#Cybersecurity"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#NIST_CSF">
+    <rdfs:label>NIST Cybersecurity Framework</rdfs:label>
+    <rdf:type rdf:resource="#Standard"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#">
+    <rdfs:label>Simplified Cybersecurity Ontology</rdfs:label>
+    <rdfs:comment>Created by: SachithPathiranage on 2025-04-26</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="#SecurityControls">
+    <rdfs:subClassOf rdf:resource="#Cybersecurity"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#Eradication">
+    <rdfs:label>Eradication</rdfs:label>
+    <rdf:type rdf:resource="#IRPhase"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#AccessControl">
+    <rdfs:label>Access Control System</rdfs:label>
+    <cs:effectivenessScore>7</cs:effectivenessScore>
+    <rdf:type rdf:resource="#TechnicalControl"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#PhishingTraining">
+    <rdfs:label>Phishing Awareness Training</rdfs:label>
+    <cs:addresses rdf:resource="#Trojan"/>
+    <rdf:type rdf:resource="#Training"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#CVE-2021-44228">
+    <rdfs:label>Log4Shell</rdfs:label>
+    <cs:cveID>CVE-2021-44228</cs:cveID>
+    <cs:riskLevel>Critical</cs:riskLevel>
+    <rdf:type rdf:resource="#Vulnerability"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#GDPR">
+    <rdfs:label>General Data Protection Regulation</rdfs:label>
+    <rdf:type rdf:resource="#Regulation"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#CVE-2023-12345">
+    <rdfs:label>Recent Zero-Day</rdfs:label>
+    <cs:cveID>CVE-2023-12345</cs:cveID>
+    <cs:riskLevel>Critical</cs:riskLevel>
+    <rdf:type rdf:resource="#Vulnerability"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#Certification">
+    <rdfs:subClassOf rdf:resource="#SecurityEducation"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#TechnicalControl">
+    <rdfs:subClassOf rdf:resource="#SecurityControls"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#APT28">
+    <rdfs:label>APT28 (Fancy Bear)</rdfs:label>
+    <cs:riskLevel>Critical</cs:riskLevel>
+    <cs:targets>Government</cs:targets>
+    <rdf:type rdf:resource="#ThreatActor"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#ThreatIntelligence">
+    <rdfs:subClassOf rdf:resource="#Cybersecurity"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="#cveID">
+    <rdfs:domain rdf:resource="#Vulnerability"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+</rdf:RDF>
+
+<!-- Created with TopBraid -->
